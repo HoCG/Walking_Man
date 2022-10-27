@@ -1,20 +1,23 @@
 <template>
-  <div class="walking-man">
-    <div class="man-body">
-      <div class="man-body__container">
-        <div class="man-head">
-          <div class="man-hear"></div>
-          <div class="man-face">
-            <div class="man-eye"></div>
-            <div class="man-mouth"></div>
+  <div class="walking-woman">
+    <div class="woman-body">
+      <div class="woman-body__container">
+        <div class="woman-head">
+          <div class="woman-hear"></div>
+          <div class="woman-long-hear"></div>
+          <div class="woman-face">
+            <div class="woman-eye"></div>
+            <div class="woman-mouth"></div>
           </div>
         </div>
         <div class="left-hand">
           <div class="left-cloth"></div>
         </div>
         <div class="middle-part">
-          <div class="middle-part__top"></div>
-          <div class="middle-part__bottom"></div>
+          <div class="middle-part__skirt">
+            <div class="middle-part__skirt-line__left"></div>
+            <div class="middle-part__skirt-line__right"></div>
+          </div>
         </div>
         <div class="right-hand">
           <div class="right-cloth"></div>
@@ -36,8 +39,8 @@ export default defineComponent({
   name: "HomeView",
 });
 </script>
-<style>
-.walking-man {
+<style lang="scss">
+.walking-woman {
   position: relative;
   background: #fff;
   width: 700px;
@@ -46,7 +49,7 @@ export default defineComponent({
   text-align: center;
 }
 
-.man-eye {
+.woman-eye {
   width: 6px;
   height: 6px;
   border-radius: 100px;
@@ -56,7 +59,7 @@ export default defineComponent({
   position: absolute;
 }
 
-.man-mouth {
+.woman-mouth {
   width: 15px;
   height: 10px;
   border-radius: 0 0 100px 0;
@@ -66,7 +69,7 @@ export default defineComponent({
   position: absolute;
 }
 
-.man-head {
+.woman-head {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -76,20 +79,31 @@ export default defineComponent({
   margin-left: -22.5px;
 }
 
-.man-face {
+.woman-long-hear {
+  top: 1px;
+  left: -13px;
+  width: 30px;
+  height: 60px;
+  background: #000;
+  position: absolute;
+  z-index: 2;
+  border-radius: 100px 0 0 0;
+}
+
+.woman-hear {
+  width: 50px;
+  height: 17.5px;
+  border-radius: 100px 100px 0 0;
+  background: #000;
+}
+
+.woman-face {
   margin-left: 17.5px;
   width: 32.5px;
   height: 32.5px;
   position: absolute;
   border-radius: 0 0 50% 0;
   background-color: #fbebcd;
-}
-
-.man-hear {
-  width: 60px;
-  height: 17.5px;
-  border-radius: 100px 100px 0 0;
-  background: #000;
 }
 
 .middle-part {
@@ -102,6 +116,31 @@ export default defineComponent({
   margin-left: -12.5px;
   border-radius: 100%;
   transform: scale(2.2, 1.3);
+  &__skirt {
+    position: absolute;
+    top: 70px;
+    height: 90px;
+    width: 25px;
+    background-color: #000;
+    &-line__left {
+      position: absolute;
+      top: 20px;
+      left: -20px;
+      border-bottom: 35px solid #000;
+      border-top: 35px solid transparent;
+      border-left: 10px solid transparent;
+      border-right: 10px solid #000;
+    }
+    &-line__right {
+      position: absolute;
+      top: 20px;
+      left: 25px;
+      border-bottom: 35px solid #000;
+      border-top: 35px solid transparent;
+      border-left: 10px solid #000;
+      border-right: 10px solid transparent;
+    }
+  }
 }
 .left-hand,
 .right-hand {
@@ -148,7 +187,7 @@ export default defineComponent({
   margin-left: -7.5px;
   height: 125px;
   width: 12.5px;
-  background: #000;
+  background-color: #fbebcd;
   float: left;
 }
 .left-hand,
@@ -181,12 +220,12 @@ export default defineComponent({
     -webkit-transform: rotate(-35deg);
   }
 }
-.man-body {
-  animation: ManBody 6s infinite linear;
+.woman-body {
+  animation: womanBody 6s infinite linear;
   left: 0;
   position: absolute;
 }
-@keyframes ManBody {
+@keyframes womanBody {
   0% {
     /* 시작 */
     left: 0;
